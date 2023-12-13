@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Get in Touch</title>
+    <link rel="shortcut icon" type="x-icon" href="C:\Users\drozd\Desktop\Web Development\NewVsCode\Personal website\images\favicon(2).ico">
+    <style>
+      h1 {
+      margin-bottom: 20px;
+      font-family: 'Indie Flower', cursive;
+      color: #2D1745;
+      font-weight: 800px;
+      }
+
+      body {
+        background-image: url('https://images.pexels.com/photos/4672717/pexels-photo-4672717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        text-align: center;
+        margin: 150px auto;
+        font-family: 'Noto Sans', sans-serif;
+      }
+      form{
+        display:  flex;
+        flex-direction: column;
+        padding: 30px;
+        width: 70%;
+        max-width: 300px;
+        border-radius: 10% ;
+        margin: auto;
+      }
+      form input, form textarea{
+        border: 0;
+        margin: 10px 0;
+        padding: 20px;
+        outline: none;
+        background: white;
+        font-size: 16px;
+      }
+
+      form button{
+        padding: 15px;
+        background: rgb(199, 137, 173);
+        color: white;
+        font-size: 18px;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        width: 250px;
+        margin:  auto;
+        border-radius: 30px;
+      }
+      </style>
+  </head>
+  <body>
+<div>
+    <form onsubmit="sendEmail(); reset(); return false;">
+    <h1>GET IN TOUCH</h1>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="text" id="phone" placeholder="Phone Nr." required>
+    <textarea id="message" rows="6" placeholder="Your Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+function sendEmail(){
+  Email.send({
+    Host : "smtp.gmail.com",
+    Username : "drozdov.tatjana@gmail.com",
+    Password : "Bruno$2009",
+    To : 'drozdov.tatjana@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New contact form enquiry",
+    Body : "Name "+ document.getElementById("name").value
+    + "<br> Email: " + document.getElementById("email").value 
+    + "<br> Phone Ne.: " + document.getElementById("phone").value 
+    + "<br> Message: " + document.getElementById("message").value 
+
+
+}).then(
+  message => alert("Message Sent Successfully")
+);
+}
+</script>
+
+  </body>
+  <style>
+h1 {
+  margin-bottom: 65px;
+}
+form{
+  line-height: 2;
+}
+body{
+  text-align: center;
+  margin: 150px auto;
+  font-family: 'Noto Sans', sans-serif;
+}
+</style>
+</html>
